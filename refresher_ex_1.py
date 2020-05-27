@@ -23,11 +23,12 @@
 # This is just a simple example to demonstrate how the start and end
 # breakpoint system works
 # Task: get the user's name with input() and print out Hello <name>
-print("start of part 0") # set breakpoint here
+#print("start of part 0") # set breakpoint here
 # your code here
+user_name = input("Enter your name here")
+print("Hi " + user_name +"!")
 
-
-print("end of 0") # set breakpoint here 
+#print("end of 0") # set breakpoint here 
 '''
 
 
@@ -103,6 +104,14 @@ L = [0, [], [1,2,3,4], [[5],[6,7]], [8,9,10]]
 print(L)
 # your code
 
+#1st attempt - N = [L[0], L[2][1],L[2][2],[[L[3][0][0], L[3][1][0]], L[4][0], L[4][-1]]
+# print(N)
+# -attempted to write out entire list in one line, not sure if this is it but the list within the list is hard to slice. 
+
+a = [L[3][0][0], L[3][1][0]]
+print(a)
+N = [L[0], L[2][1],L[2][2], a, L[4][0], L[4][-1]]
+print(N)
 
 print("end of 1") # set breakpoint here 
 '''
@@ -155,8 +164,29 @@ print("start of part 2") # set breakpoint here
 s = "Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace. Its language constructs and object-oriented approach aim to help programmers write clear, logical code for small and large-scale projects."
 # your code here
 
+#1st attempt - attempted to use formatting to split sentences 
+#print(s{.end="."}.format()) -- did not work 
+
+#2nd attempt -trying to use for loops 
+#for x in s:
+    #if x end= "."
+    #print(x) #second attempt, did not work.
+
+#3rd attempt - trying to use slice, realized slice can only be used with int  
+#print(s["Python":"."])
+
+#4th attempt. 
+#a = """s"""
+#print(a)
+
+#5th attempt
+
+print(list(s))
+
 print("end of 2") # set breakpoint here 
 '''
+
+
 
 
 
