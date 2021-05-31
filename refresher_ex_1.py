@@ -27,6 +27,10 @@
 print("start of part 0") # set breakpoint here
 # your code here
 
+n = "Pinar"
+s = "Adanir"
+
+print("Hello, I'm", n, s)
 
 print("end of 0") # set breakpoint here 
 '''
@@ -108,7 +112,29 @@ print("start of part 1") # set breakpoint here
 L = [0, [], [1,2,3,4], [[5],[6,7]], [8,9,10]]
 print(L)
 # your code
+a = L[0]
 
+x = L[2]
+b = x[1]
+
+c = x[2]
+
+y = L[3]
+m = y[0]
+p = m[0]
+n = y[1]
+o = n[0]
+d = [p, o]
+
+z = L[4]
+e = z[0]
+
+f = z[2]
+
+
+L = [a, b, c, d, e, f]
+
+print(L)
 
 print("end of 1") # set breakpoint here 
 '''
@@ -137,7 +163,7 @@ print("end of 1") # set breakpoint here
 
 
 
-# solution 1
+# solution 2
 L = [0, [], [1,2,3,4], [[5],[6,7]], [8,9,10]]
 print("L is", L)
 tmp1 = L[0] # 0
@@ -160,6 +186,14 @@ print(newL) # [0, 2, 3, [5, 6], 8, 10]
 print("start of part 2") # set breakpoint here
 s = "Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace. Its language constructs and object-oriented approach aim to help programmers write clear, logical code for small and large-scale projects."
 # your code here
+
+pello = s.split(".")
+
+print("there are", len(pello), "sentences in the list s and the sentences are:")
+
+for i in pello:
+    print(i)
+
 
 print("end of 2") # set breakpoint here 
 '''
@@ -188,7 +222,7 @@ print("end of 2") # set breakpoint here
 
 
 
-# solution 2
+
 s = "Python is an interpreted, high-level, general-purpose programming language."
 sentence_list = s.split('.')
 print("there are", len(sentence_list), "sentences:")
@@ -213,6 +247,41 @@ for e in sentence_list:
 # LANGUAGE
 print("start of part 3") # set breakpoint here
 # your code here
+
+lala = s.split(" ")
+#print(lala)
+
+
+"""
+for i in range(len(lala)):
+
+    if (i % 2 == 0):
+        lalaupp = [i.upper() for i in lala]
+        print(lalaupp)
+    else:
+        print(i)
+
+                          DIDN'T UNDERSTAND WHY THIS DOESN'T WORK
+
+for i in range(len(lala)):
+    if (i % 2 == 0):
+        print(x.upper() for x in lala)
+    else:
+        print(y for y in lala)
+
+
+"""
+
+uplala = False
+
+for q in lala:
+    if uplala == True:
+        print(q.upper())
+        uplala = False
+    
+    else:
+        print(q)
+        uplala = True
 
 
 print("end of 3") # set breakpoint here 
@@ -291,6 +360,32 @@ s = "A very long description" # a long string
 filler = "..."
 # your code here
 
+"""
+
+def abbr(s):
+    h = 5 #input("Please enter the length of letters you want to see.")
+    starting = s[0:h]
+    filler = "..."
+    ending = s[-h:]
+        if isinstance(h, int) is True:
+            print(starting, filler, ending, ".", sep="")
+        else:
+            print(h, "is not a valid integer.")
+
+
+abbr(s)
+
+
+"""
+
+def abbbbbr(s):
+    starting = s[0:5]
+    ending = s[-5:]
+    filler = "..."
+    print(starting, filler, ending, ".", sep="")
+
+
+abbbbbr(s)
 
 print("end of 4") # set breakpoint here 
 '''
@@ -325,8 +420,6 @@ print("end of 4") # set breakpoint here
 
 
 # solution 4
-
-# version 1: without a function
 s = "A very long description" # a long string
 filler = "..."
 for x in range(5, 15):
@@ -338,7 +431,7 @@ for x in range(5, 15):
         print(x, abb_str)
 
 
-# version 2: with function
+
 def abbr(s, filler="...", total_width=15):
     "returns a copy of s abbreviated to total_width with filler in the middle" 
     x = total_width // 2 # integer division
@@ -348,7 +441,7 @@ def abbr(s, filler="...", total_width=15):
         return s
     return abb_str
 
-# Test (with function)
+# Test
 s = "A very long description"
 for tw in range(5, len(s)+1):
     print(tw, abbr(s, "...", tw))
