@@ -16,14 +16,28 @@ s = "A very long description" # a long string
 filler = "..."
 # your code here
 
+#Tim's code starts here.
+
+x = 5
+my_list = list(s) # CH makes a list of letters
+leading = my_list[0:x] # CH should  be my_list[0:x] not 0:5
+trailing = my_list[-x: ]
+
+# need to glue chars from list into strings and put "..." in between
+abbr_s = "".join(leading) + "..." + "".join(trailing)
+print(abbr_s)
+
+
+# given the len() of s, when is x too big? 
+
+
+
 
 print("end of 4") # set breakpoint here 
 '''
 # solution 4
 s = "A very long description" # a long string
 filler = "..."
-
-# without function
 for x in range(5, 15):
     # check if abbreviation would be longer than s
     if x * 2 + len(filler) > len(s):
@@ -31,8 +45,6 @@ for x in range(5, 15):
     else:
         abb_str = s[0:x] + filler + s[-x:] # slice off ends and glue together with filler chars
         print(x, abb_str)
-        
-# using a function
 def abbr(s, filler="...", total_width=15):
     "returns a copy of s abbreviated to total_width with filler in the middle" 
     x = total_width // 2 # integer division
@@ -41,7 +53,6 @@ def abbr(s, filler="...", total_width=15):
     if len(abb_str) > len(s):
         return s
     return abb_str
-    
 # Test
 s = "A very long description"
 for tw in range(5, len(s)+1):
