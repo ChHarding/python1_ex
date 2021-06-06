@@ -25,8 +25,10 @@
 # breakpoint system works
 # Task: create a variable with your name and print out Hello <name>
 print("start of part 0") # set breakpoint here
-# your code here
-
+L = [0, [], [1,2,3,4], [[5],[6,7]], [8,9,10]]
+print(L)
+N = [ L[0], L[2][1:-1], L[3][0], L[3][1][0], L[4][0], L[4][-1] ] # calls from array L, listing specific location and numbers to be called
+print(N)
 
 print("end of 0") # set breakpoint here 
 '''
@@ -159,7 +161,23 @@ print(newL) # [0, 2, 3, [5, 6], 8, 10]
 #  Its language constructs and object-oriented approach aim to help programmers ...
 print("start of part 2") # set breakpoint here
 s = "Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace. Its language constructs and object-oriented approach aim to help programmers write clear, logical code for small and large-scale projects."
-# your code here
+slist = s.split(". ");
+
+end = len(slist);
+
+print("There are", end, "sentences in the original string")
+print("Here they are:\n")
+
+#last element of list (sentence) will always have period, lets remove
+numElements = len(slist);
+lastIndex = numElements -1;
+slist[lastIndex] = slist[lastIndex].replace('.', '');
+
+#print list of sentences
+for x in range(end):
+    print(slist[x]);
+print('')
+
 
 print("end of 2") # set breakpoint here 
 '''
@@ -212,8 +230,31 @@ for e in sentence_list:
 # programming
 # LANGUAGE
 print("start of part 3") # set breakpoint here
-# your code here
+for x in range(numElements):
+    if x == 0:
+        newString = slist[x]
+    else:
+        newString = newString + " " + slist[x]
 
+#remove all commas
+newString = newString.replace(",", "");
+
+#split new big string into list of just words
+allWordsList = newString.split(" ");
+
+#get range for next forloop
+wordLength = len(allWordsList);
+
+#make for loop to go through and either capitalize or decapitalize each word
+count = 2;
+for x in range(wordLength):
+    if count%2 == 0:
+        print(allWordsList[x])
+        count = count+1;
+    else:
+        print(allWordsList[x].upper())
+        count = count+1;
+print("");
 
 print("end of 3") # set breakpoint here 
 '''
@@ -287,9 +328,33 @@ for w in words:
 # result would not be longer than s!
 # call your function a couple of times with different parameters and also test edge cases
 print("start of part 4") # set breakpoint here
-s = "A very long description" # a long string
-filler = "..."
-# your code here
+s = "hello, my name is johnny. i love to play basketball. what is your favorite sport?"
+x = 5; #could be any number
+y = len(s);
+addition = "..."; #could be anything
+
+print("TASK 4: TEST 1");
+#check whether addition will fit. if so, add the addtion
+if x*2 + len(addition) > len(s):
+    print("string not long enough for addition to fit:");
+    print(s);
+else:
+    newString = s[:x] + addition + s[-x:]
+    print(newString);
+
+print("\nTASK 4: TEST 2");
+s = "not long"
+x = 5; #could be any number
+y = len(s);
+addition = "..."; #could be anything
+
+if x*2 + len(addition) > len(s):
+    print("string not long enough for addition to fit:");
+    print(s);
+else:
+    newString = s[:x] + addition + s[-x:]
+    print(newString);
+
 
 
 print("end of 4") # set breakpoint here 
